@@ -1,9 +1,9 @@
-#Toggl iOS Stopwatch App
+# Toggl iOS Stopwatch App
 
 This repository contains the source code for an iOS Stopwatch app.
 
 
-#Basic functionality of this stopwatch
+## Basic functionality of this stopwatch
 
 - Start / Stop the stopwatch with a tap anywhere on the screen
 - Reset the timer when shaking the phone
