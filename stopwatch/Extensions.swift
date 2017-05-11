@@ -60,7 +60,7 @@ func animateLayerImpl<T : CALayer>(_ layer : T,
 
 extension Foundation.Timer
 {
-    class func schedule(delay: TimeInterval,
+    @discardableResult class func schedule(delay: TimeInterval,
                         handler: @escaping (Foundation.Timer!) -> Void) -> Foundation.Timer
     {
         let fireDate = delay + CFAbsoluteTimeGetCurrent()
@@ -69,7 +69,7 @@ extension Foundation.Timer
         return timer!
     }
     
-    class func schedule(repeatInterval interval: TimeInterval,
+    @discardableResult class func schedule(repeatInterval interval: TimeInterval,
                         handler: @escaping (Foundation.Timer!) -> Void) -> Foundation.Timer
     {
         let fireDate = interval + CFAbsoluteTimeGetCurrent()
