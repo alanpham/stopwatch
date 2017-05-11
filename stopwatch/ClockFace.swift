@@ -1,7 +1,7 @@
 import UIKit
 
-class ClockFace: UIView {
-
+class ClockFace: UIView
+{
     var dotWidth = CGFloat(8)
 
     var clockHand = CAShapeLayer()
@@ -9,15 +9,17 @@ class ClockFace: UIView {
     var centerDot = CALayer()
     var currentSeconds = 0.0
 
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder)
+    {
         super.init(coder: aDecoder)
     }
 
 	init(containerSize: CGSize = CGSize(width: ClockFace.clockHandSize(), height: ClockFace.clockHandSize()),
-        centerRadius: CGFloat = 8) {
-		super.init(frame: CGRect (origin: CGPointZero, size: containerSize))
+	     centerRadius: CGFloat = 8)
+    {
+		super.init(frame: CGRect (origin: CGPoint.zero, size: containerSize))
 		
-        backgroundColor = UIColor.clearColor()
+        backgroundColor = UIColor.clear
         setColorScheme()
         clockHand.path = getHandPath(extended: false)
 		
@@ -32,14 +34,18 @@ class ClockFace: UIView {
         layer.addSublayer(centerDot)
     }
 
-    func getHandPath(extended extended : Bool) -> CGPath {
-        let path = CGPathCreateMutable()
-        CGPathMoveToPoint(path, nil, 0, 0)
-        CGPathAddLineToPoint(path, nil, 0, extended ? -2 : 0)
+    func getHandPath(extended : Bool) -> CGPath
+    {
+        let path = CGMutablePath()
+        path.move(to: CGPoint(x: 0, y: 0))
+        path.addLine(to: CGPoint(x: 0, y: extended ? -2 : 0))
+//        CGPathMoveToPoint(path, nil, 0, 0)
+//        CGPathAddLineToPoint(path, nil, 0, extended ? -2 : 0)
         return path
     }
     
-    func animate(seconds: Double) {
+    func animate(_ seconds: Double)
+    {
         
         if seconds == currentSeconds { //don't run the animation on every call (run it 10 times a second).
             return
@@ -47,17 +53,19 @@ class ClockFace: UIView {
         currentSeconds = seconds;
         
         let angle = seconds * 6.0
-        let rotation = CGAffineTransformMakeRotation(CGFloat(Double(angle) / 180.0 * M_PI))
+        let rotation = CGAffineTransform(rotationAngle: CGFloat(Double(angle) / 180.0 * Double.pi))
         self.clockHand.setAffineTransform(rotation)
     }
     
-    func scaleDot(size : CGFloat) {
-        centerDot.position = CGPointMake(self.frame.width / 2, self.frame.height / 2)
+    func scaleDot(_ size : CGFloat)
+    {
+        centerDot.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2)
         centerDot.bounds = CGRect(x: 0, y: 0, width: size, height: size)
         centerDot.cornerRadius = size / 2
     }
     
-    func hide() {
+    func hide()
+    {
         animateLayer(clockHand,
             duration: 0.4,
             animation: { layer in
@@ -74,8 +82,9 @@ class ClockFace: UIView {
         )
     }
     
-    func show() {
-        hidden = false
+    func show()
+    {
+        isHidden = false
         animateLayer(clockHand,
             duration: 1, delay: 0.7,
             timingFunction: CAMediaTimingFunction(controlPoints: 0, 1, 1, 1),
@@ -93,15 +102,14 @@ class ClockFace: UIView {
         )
     }
 
-
-    
-
-    func setColorScheme() {
-		centerDot.backgroundColor = AppDelegate.instance.colorScheme.dotColor.CGColor
-		clockHand.strokeColor = AppDelegate.instance.colorScheme.handColor.CGColor
+    func setColorScheme()
+    {
+		centerDot.backgroundColor = AppDelegate.instance.colorScheme.dotColor.cgColor
+		clockHand.strokeColor = AppDelegate.instance.colorScheme.handColor.cgColor
     }
 
-    static func clockHandSize() -> Double {
+    static func clockHandSize() -> Double
+    {
         if(AppDelegate.isIPhone5orLower()){
             return 300.0
         } else {
@@ -109,11 +117,11 @@ class ClockFace: UIView {
         }
     }
 
-    static func clockHandLocation(superView: UIView, clockFaceView: UIView) -> CGPoint {
-
+    static func clockHandLocation(_ superView: UIView, clockFaceView: UIView) -> CGPoint
+    {
         //if small, x points from top, if large, put in center
         if(AppDelegate.isIPhone5orLower()) {
-            return CGPointMake(superView.center.x, 64 + clockFaceView.bounds.height / 2)
+            return CGPoint(x: superView.center.x, y: 64 + clockFaceView.bounds.height / 2)
         }
         return superView.center
     }

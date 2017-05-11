@@ -1,15 +1,8 @@
-//
-//  MainViewController.swift
-//  stopwatch
-//
-//  Created by Alex Eroshin on 8/8/16.
-//  Copyright © 2016 Toggl. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
-protocol TimerDelegate {
+protocol TimerDelegate
+{
 	func timerStarted()
 	func timerReset()
 	func timerSaved()
@@ -19,48 +12,52 @@ protocol TimerDelegate {
 	func showHistory()
 }
 
-protocol HistoryDelegate {
+protocol HistoryDelegate
+{
 	func showTimer()
 }
 
-class MainViewController: UIViewController, UIScrollViewDelegate {
-	
+class MainViewController: UIViewController, UIScrollViewDelegate
+{
 	@IBOutlet weak var scrollView: UIScrollView!
 	
 	var timerController: TimerViewController?
 	
 	var historyController: HistoryViewController?
 	
-	override func viewDidLoad() {
+	override func viewDidLoad()
+    {
 		super.viewDidLoad()
 		self.view.backgroundColor = AppDelegate.instance.colorScheme.backgroundColor
 	}
 	
-	override func viewDidLayoutSubviews() {
+	override func viewDidLayoutSubviews()
+    {
 		super.viewDidLayoutSubviews()
 		scrollView.contentSize = CGSize(width: view.frame.width * 2, height: view.frame.height)
 		scrollView.delegate = self
 		
-		historyController = storyboard?.instantiateViewControllerWithIdentifier("HistoryController")
+		historyController = storyboard?.instantiateViewController(withIdentifier: "HistoryController")
 			as? HistoryViewController
 		historyController?.delegate = self
 		addChildViewController(historyController!)
 		historyController?.view.frame.origin.x = view.frame.size.width
 		scrollView.addSubview((historyController?.view)!)
-		historyController?.didMoveToParentViewController(self)
+		historyController?.didMove(toParentViewController: self)
 		
-		timerController = storyboard?.instantiateViewControllerWithIdentifier("TimerController")
+		timerController = storyboard?.instantiateViewController(withIdentifier: "TimerController")
 			as? TimerViewController
 		timerController?.delegate = self
 		addChildViewController(timerController!)
 		scrollView.addSubview((timerController?.view)!)
-		timerController?.didMoveToParentViewController(self)
+		timerController?.didMove(toParentViewController: self)
 		
-		scrollView.scrollEnabled = UserSettings().hasReset
-		timerController?.historyButton.hidden = !UserSettings().hasReset
+		scrollView.isScrollEnabled = UserSettings().hasReset
+		timerController?.historyButton.isHidden = !UserSettings().hasReset
 	}
 	
-	func scrollViewDidScroll(scrollView: UIScrollView) {
+	func scrollViewDidScroll(_ scrollView: UIScrollView)
+    {
 		if scrollView.contentOffset.x >= scrollView.frame.width * 0.9
 				&& timerController?.settings.showHistoryHint == true {
 			timerController?.settings.showHistoryHint = false
@@ -68,50 +65,59 @@ class MainViewController: UIViewController, UIScrollViewDelegate {
 		}
 	}
 	
-	override func prefersStatusBarHidden() -> Bool {
+	override var prefersStatusBarHidden : Bool
+    {
 		return true
 	}
 }
 
-extension MainViewController: TimerDelegate {
+extension MainViewController: TimerDelegate
+{
 	
-	func timerStarted() {
+	func timerStarted()
+    {
 		historyController?.showCurrentTimerView()
 	}
 	
-	func timerReset() {
-		scrollView.scrollEnabled = true
+	func timerReset()
+    {
+		scrollView.isScrollEnabled = true
 		timerController?.refreshHistoryHint()
 		historyController?.hideCurrentTimerView()
 	}
 	
-	func timerSaved() {
+	func timerSaved()
+    {
 		historyController?.loadData()
 	}
 	
-	func getSecondaryClockFaces() -> [ClockFace] {
+	func getSecondaryClockFaces() -> [ClockFace]
+    {
 		return [(historyController?.clockFace)!]
 	}
 	
-	func getSecondaryLabels() -> [UILabel] {
+	func getSecondaryLabels() -> [UILabel]
+    {
 		return [(historyController?.currentDetailsLabel)!]
 	}
 	
-	func getPrettySecondaryLabels() -> [UILabel] {
+	func getPrettySecondaryLabels() -> [UILabel]
+    {
 		return [(historyController?.currentDurationLabel)!]
 	}
 	
-	func showHistory() {
+	func showHistory()
+    {
 		var rect = view.frame
 		rect.origin.x = rect.width
 		scrollView.scrollRectToVisible(rect, animated: true)
 	}
 }
 
-extension MainViewController: HistoryDelegate {
-
-	func showTimer() {
+extension MainViewController: HistoryDelegate
+{
+	func showTimer()
+    {
 		scrollView.scrollRectToVisible(view.frame, animated: true)
 	}
-	
 }
