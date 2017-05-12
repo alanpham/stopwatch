@@ -9,7 +9,7 @@
     private let hasStartedKey = "hasStarted"
     private let hasStoppedKey = "hasStopped"
     private let hasResetKey = "hasReset"
-	private let showHistoryHintKey = "showHistoryHint"
+    private let showHistoryHintKey = "showHistoryHint"
 
     private lazy var defaultValues : NSDictionary = [
             self.hasStartedKey : false,
@@ -54,15 +54,15 @@
             return defaults.bool(forKey: hasResetKey)
         }
     }
-	
-	var showHistoryHint : Bool {
-		set {
-			defaults.set(newValue, forKey: showHistoryHintKey)
-		}
-		get {
-			return defaults.bool(forKey: showHistoryHintKey)
-		}
-	}
+
+    var showHistoryHint : Bool {
+        set {
+            defaults.set(newValue, forKey: showHistoryHintKey)
+        }
+        get {
+            return defaults.bool(forKey: showHistoryHintKey)
+        }
+    }
 
     init (){
         defaults.register(defaults: defaultValues as! [String : AnyObject])
@@ -86,6 +86,6 @@
         hasStarted = defaultValues[hasStartedKey] as! Bool
         hasStopped = defaultValues[hasStoppedKey] as! Bool
         hasReset = defaultValues[hasResetKey] as! Bool
-		showHistoryHint = defaultValues[showHistoryHintKey] as! Bool
+        showHistoryHint = defaultValues[showHistoryHintKey] as! Bool
     }
  }
