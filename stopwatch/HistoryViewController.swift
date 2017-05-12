@@ -1,14 +1,7 @@
-//
-//  HistoryViewController.swift
-//  stopwatch
-//
-//  Created by Alex Eroshin on 8/8/16.
-//  Copyright © 2016 Toggl. All rights reserved.
-//
-
 import UIKit
 
-class HistoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class HistoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
+{
 
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var backButton: UIButton!
@@ -25,10 +18,11 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
 	
 	var timers: [Timer] = []
 	
-	override func viewDidLoad() {
+	override func viewDidLoad()
+    {
 		super.viewDidLoad()
 		
-		backButton.setImage(AppDelegate.instance.colorScheme.backButton, forState: .Normal)
+		backButton.setImage(AppDelegate.instance.colorScheme.backButton, for: .normal)
 		currentDurationLabel.textColor = AppDelegate.instance.colorScheme.textColor
 		currentDetailsLabel.textColor = AppDelegate.instance.colorScheme.secondaryTextColor
 		topSeparatorView.backgroundColor = AppDelegate.instance.colorScheme.separatorColor
@@ -40,51 +34,57 @@ class HistoryViewController: UIViewController, UITableViewDataSource, UITableVie
 		loadData()
 	}
 	
-	override func viewDidLayoutSubviews() {
+	override func viewDidLayoutSubviews()
+    {
 		super.viewDidLayoutSubviews()
-		if clockFace == nil {
+		if clockFace == nil
+        {
             clockFace = ClockFace(containerSize: clockFaceContainer.frame.size, centerRadius: 4)
 			clockFace!.frame = CGRect(x: 0, y: 0, width: clockFaceContainer.frame.width, height: clockFaceContainer.frame.width)
 			clockFaceContainer.addSubview(clockFace!)
 		}
 	}
 	
-	func hideCurrentTimerView() {
+	func hideCurrentTimerView()
+    {
 		tableView.tableHeaderView = nil
 	}
 	
-	func showCurrentTimerView() {
+	func showCurrentTimerView()
+    {
 		tableView.tableHeaderView = tableViewHeader
 	}
 	
-	func loadData() {
+	func loadData()
+    {
 		timers = Datastore.instance.fetchTimers()
 		tableView.reloadData()
 	}
 	
-	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
 		return timers.count
 	}
 	
-	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCellWithIdentifier("HistoryCell") as! HistoryTableViewCell
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+		let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell") as! HistoryTableViewCell
 		let timer = timers[indexPath.row]
 		
-		cell.backgroundColor = .clearColor()
+		cell.backgroundColor = .clear
 		cell.durationLabel.textColor = AppDelegate.instance.colorScheme.textColor
 		cell.detailsLabel.textColor = AppDelegate.instance.colorScheme.secondaryTextColor
 		cell.separatorView.backgroundColor = AppDelegate.instance.colorScheme.separatorColor
 		
-		
-		
-		let date = NSDate(timeIntervalSince1970: timer.duration)
+		let date = Date(timeIntervalSince1970: timer.duration)
 		cell.durationLabel.text = timer.duration.prettyFormat()
 		cell.detailsLabel.text = date.shortFormat()
 		
 		return cell
 	}
 	
-	@IBAction func showTimer() {
+	@IBAction func showTimer()
+    {
 		delegate?.showTimer()
 	}
 }

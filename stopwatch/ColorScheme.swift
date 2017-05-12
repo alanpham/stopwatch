@@ -1,15 +1,8 @@
-//
-//  ColorScheme.swift
-//  stopwatch
-//
-//  Created by Alex Eroshin on 8/8/16.
-//  Copyright © 2016 Toggl. All rights reserved.
-//
-
 import Foundation
 import UIKit
 
-struct ColorScheme {
+struct ColorScheme
+{
 	var backgroundColor: UIColor
 	var textColor: UIColor
 	var secondaryTextColor: UIColor
@@ -25,7 +18,8 @@ struct ColorScheme {
 	var historyHintCircles: UIImage
 }
 
-class ColorSchemes {
+class ColorSchemes
+{
 	static let dayScheme = ColorScheme(
 		backgroundColor: UIColor(red: 241/255.0, green: 207/255.0, blue: 99/255.0, alpha: 1.0),
 		textColor: UIColor(red: 32/255.0, green: 31/255.0, blue: 61/255.0, alpha: 1.0),

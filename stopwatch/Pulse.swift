@@ -1,44 +1,40 @@
-//
-//  Pulse.swift
-//  stopwatch
-//
-//  Created by Angel Ernesto Anton Yebra on 16/06/16.
-//  Copyright © 2016 Toggl. All rights reserved.
-//
-
 import UIKit
 
-class Pulse: UIView {
-
+class Pulse: UIView
+{
     let radExt = CGFloat(50)
     let radInt = CGFloat(30)
     let internalCircle = CAShapeLayer ()
     let externalCircle = CAShapeLayer ()
+    let nightColor = UIColor(red: 255/255.0, green: 212/255.0, blue: 96/255.0, alpha: 0.11).cgColor
+    let dayColor = UIColor(red: 31/255.0, green: 30/255.0, blue: 69/255.0, alpha: 0.11).cgColor
 
-    init() {
+    init()
+    {
         super.init(frame: CGRect (x: 0.0, y:0.0, width: 1.0, height: 1.0))
         initAnim()
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder)
+    {
         super.init(coder: aDecoder)
     }
 
     func initAnim ()
     {
         let path = UIBezierPath ()
-        path.addArcWithCenter(CGPoint.init(x:0,y:0), radius: radInt, startAngle: 0.0 * CGFloat ((M_PI/180.0)), endAngle: 360 * CGFloat((M_PI/180.0)), clockwise: true)
-        internalCircle.path = path.CGPath
+        path.addArc(withCenter: CGPoint.init(x:0,y:0), radius: radInt, startAngle: 0.0 * CGFloat ((Double.pi/180.0)), endAngle: 360 * CGFloat((Double.pi/180.0)), clockwise: true)
+        internalCircle.path = path.cgPath
 
         let staticPath = UIBezierPath ()
-        staticPath.addArcWithCenter(CGPoint.init(x:0,y:0), radius: radExt, startAngle: 0.0 * CGFloat ((M_PI/180.0)), endAngle: 360 * CGFloat((M_PI/180.0)), clockwise: true)
-        externalCircle.path = staticPath.CGPath
+        staticPath.addArc(withCenter: CGPoint.init(x:0,y:0), radius: radExt, startAngle: 0.0 * CGFloat ((Double.pi/180.0)), endAngle: 360 * CGFloat((Double.pi/180.0)), clockwise: true)
+        externalCircle.path = staticPath.cgPath
 
         layer.addSublayer(externalCircle)
         layer.addSublayer(internalCircle)
         
-        NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: #selector(Pulse.animInnerOnce), userInfo: nil, repeats: true)
-        NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: #selector(Pulse.animOuterOnce), userInfo: nil, repeats: true)
+        Foundation.Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(Pulse.animInnerOnce), userInfo: nil, repeats: true)
+        Foundation.Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(Pulse.animOuterOnce), userInfo: nil, repeats: true)
         animInnerOnce()
         animOuterOnce()
         
@@ -47,8 +43,8 @@ class Pulse: UIView {
 		setColorScheme()
     }
     
-    func animInnerOnce() {
-        
+    func animInnerOnce()
+    {
         let bounceScaleAnim = CAKeyframeAnimation ()
         bounceScaleAnim.keyPath = "transform.scale.xy"
         bounceScaleAnim.values = [0.6, 0.67, 0.6]
@@ -57,13 +53,13 @@ class Pulse: UIView {
         animGroup.animations =  [bounceScaleAnim]
         animGroup.duration = 2
         animGroup.fillMode = kCAFillModeForwards
-        animGroup.removedOnCompletion = false
+        animGroup.isRemovedOnCompletion = false
         
-        internalCircle.addAnimation(animGroup, forKey: "scale")
+        internalCircle.add(animGroup, forKey: "scale")
     }
     
-    func animOuterOnce() {
-        
+    func animOuterOnce()
+    {
         let simpleScale = CABasicAnimation ()
         simpleScale.keyPath = "transform.scale.xy"
         simpleScale.fromValue = 0
@@ -78,28 +74,29 @@ class Pulse: UIView {
         animGroup.animations = [simpleScale, simpleAlpha]
         animGroup.duration = 3
         animGroup.fillMode = kCAFillModeForwards
-        animGroup.removedOnCompletion = false
+        animGroup.isRemovedOnCompletion = false
         
-        externalCircle.addAnimation(animGroup, forKey: "pulse")
+        externalCircle.add(animGroup, forKey: "pulse")
     }
     
-    func hide() {
+    func hide()
+    {
         fadeToOpacity(0)
     }
     
-    func show() {
+    func show()
+    {
         fadeToOpacity(1)
     }
     
-    func fadeToOpacity(opacity : Float) {
+    func fadeToOpacity(_ opacity : Float)
+    {
         animateLayer(layer, duration: 0.5, animation: { l in l.opacity = opacity }, properties: "opacity")
     }
 
-    let nightColor = UIColor(red: 255/255.0, green: 212/255.0, blue: 96/255.0, alpha: 0.11).CGColor
-    let dayColor = UIColor(red: 31/255.0, green: 30/255.0, blue: 69/255.0, alpha: 0.11).CGColor
-
-    func setColorScheme() {
-		internalCircle.fillColor = AppDelegate.instance.colorScheme.pulseColor.CGColor
-		externalCircle.fillColor = AppDelegate.instance.colorScheme.pulseColor.CGColor
+    func setColorScheme()
+    {
+		internalCircle.fillColor = AppDelegate.instance.colorScheme.pulseColor.cgColor
+		externalCircle.fillColor = AppDelegate.instance.colorScheme.pulseColor.cgColor
     }
 }

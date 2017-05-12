@@ -1,7 +1,7 @@
 import UIKit
 
-class TimerViewController: UIViewController {
-
+class TimerViewController: UIViewController
+{
     //MARK: Properties
     let pulse = Pulse ()
     let shakeView = ShakeableView()
@@ -12,29 +12,36 @@ class TimerViewController: UIViewController {
 	@IBOutlet weak var historyHintArrow: UIImageView!
 	@IBOutlet weak var historyHintCircles: UIImageView!
 	
-	var shakeTimer: NSTimer?
+	var shakeTimer: Foundation.Timer?
 	
-	var pulseTimer: NSTimer?
+	var pulseTimer: Foundation.Timer?
 
     var settings : UserSettings!
 	
 	var delegate: TimerDelegate?
     
     //MARK: Actions
-    @IBAction func timerAction(sender: UITapGestureRecognizer) {
-        if(timer.isRunning()) {
-			if pulseTimer != nil {
+    @IBAction func timerAction(_ sender: UITapGestureRecognizer)
+    {
+        if(timer.isRunning())
+        {
+			if pulseTimer != nil
+            {
 				pulseTimer?.invalidate()
 				pulseTimer = nil
 			}
             timer.stop()
             settings.hasStopped = true
             pulse.hide()
-            if (!settings.hasReset) {
-               shakeTimer = NSTimer.schedule(delay: 1, handler: { timer in self.shakeView.show()})
+            if (!settings.hasReset)
+            {
+               shakeTimer = Foundation.Timer.schedule(delay: 1, handler: { timer in self.shakeView.show()})
             }
-        } else {
-			if shakeTimer != nil {
+        }
+        else
+        {
+			if shakeTimer != nil
+            {
 				shakeTimer?.invalidate()
 				shakeTimer = nil
 			}
@@ -46,9 +53,11 @@ class TimerViewController: UIViewController {
 			delegate?.timerStarted()
             settings.hasStarted = true
             pulse.hide()
-            if(!settings.hasStopped){
-                pulseTimer = NSTimer.schedule(delay: 5, handler: { timer in
-                    if !self.timer.isRunning() {
+            if(!settings.hasStopped)
+            {
+                pulseTimer = Foundation.Timer.schedule(delay: 5, handler: { timer in
+                    if !self.timer.isRunning()
+                    {
                         return
                     }
                     self.pulse.show()
@@ -57,7 +66,8 @@ class TimerViewController: UIViewController {
         }
     }
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
 
         view.addSubview(timer)
@@ -74,55 +84,68 @@ class TimerViewController: UIViewController {
         view.addSubview(pulse)
 
         if !settings.hasStarted {
-            NSTimer.schedule(delay: 0.5, handler: { timer in
-                if self.timer.isRunning() {
+            Foundation.Timer.schedule(delay: 0.5, handler: { timer in
+                if self.timer.isRunning()
+                {
                     return
                 }
                 self.pulse.show()
             })
         }
 		
-		historyButton.setImage(AppDelegate.instance.colorScheme.historyButton, forState: .Normal)
+		historyButton.setImage(AppDelegate.instance.colorScheme.historyButton, for: .normal)
 		historyHintArrow.image = AppDelegate.instance.colorScheme.historyHintArrow
 		historyHintCircles.image = AppDelegate.instance.colorScheme.historyHintCircles
 		
 		refreshHistoryHint()
     }
 	
-	override func viewDidAppear(animated: Bool) {
+	override func viewDidAppear(_ animated: Bool)
+    {
 		super.viewDidAppear(animated)
 		becomeFirstResponder()
 	}
 	
-    override func canBecomeFirstResponder() -> Bool {
+    override var canBecomeFirstResponder : Bool
+    {
         return true
     }
     
-    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
-        if (motion == .MotionShake && !timer.timer.valid && abs(timer.interval) > 0){
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?)
+    {
+        if (motion == .motionShake && !timer.timer.isValid && abs(timer.interval) > 0)
+        {
             reset()
         }
     }
 	
-	func refreshHistoryHint() {
-		if historyHintView.hidden && settings.showHistoryHint {
-			historyHintView.hidden = false
+	func refreshHistoryHint()
+    {
+		if historyHintView.isHidden && settings.showHistoryHint
+        {
+			historyHintView.isHidden = false
 			historyHintView.alpha = 0
-			historyButton.hidden = false
+			historyButton.isHidden = false
 			historyButton.alpha = 0
-			UIView.animateWithDuration(0.5) {
+			UIView.animate(withDuration: 0.5, animations: {
 				self.historyHintView.alpha = 1
 				self.historyButton.alpha = 1
-			}
-		} else {
-			historyHintView.hidden = settings.showHistoryHint == false
+			}) 
+		}
+        else
+        {
+			historyHintView.isHidden = settings.showHistoryHint == false
 		}
 	}
 	
-	func reset() {
-		if (!settings.hasReset){
+	func reset()
+    {
+		if (!settings.hasReset)
+        {
 			confirmReset()
-		} else {
+		}
+        else
+        {
 			refreshHistoryHint()
 			delegate?.timerReset()
 			Datastore.instance.saveTimer(timer.startTime, duration: abs(timer.interval))
@@ -131,9 +154,10 @@ class TimerViewController: UIViewController {
 		}
 	}
 
-    func confirmReset() {
-        let confirmDialog = UIAlertController(title: "Reset", message: "Do you want to reset the timer?", preferredStyle: .Alert)
-        confirmDialog.addAction(UIAlertAction(title: "Reset", style: .Default, handler: { action in
+    func confirmReset()
+    {
+        let confirmDialog = UIAlertController(title: "Reset", message: "Do you want to reset the timer?", preferredStyle: .alert)
+        confirmDialog.addAction(UIAlertAction(title: "Reset", style: .default, handler: { action in
 			self.delegate?.timerReset()
 			self.settings.showHistoryHint = true
 			self.refreshHistoryHint()
@@ -144,11 +168,12 @@ class TimerViewController: UIViewController {
             self.timer.reset()
             }
         ))
-        confirmDialog.addAction(UIAlertAction(title: "Do nothing", style: .Cancel, handler: nil))
-        presentViewController(confirmDialog, animated: true, completion: nil)
+        confirmDialog.addAction(UIAlertAction(title: "Do nothing", style: .cancel, handler: nil))
+        present(confirmDialog, animated: true, completion: nil)
     }
 	
-	@IBAction func showHistory() {
+	@IBAction func showHistory()
+    {
 		delegate?.showHistory()
 	}
 }

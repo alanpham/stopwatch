@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 class Timer: NSManagedObject {
-	@NSManaged var date: NSDate
+	@NSManaged var date: Date
 	@NSManaged var duration: Double
 	
 	static let entityName: String = "Timer"
@@ -22,26 +22,26 @@ class Datastore {
 	
 	// <CoreData>
 	
-	private lazy var applicationDocumentsDirectory: NSURL = {
-		let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+	private lazy var applicationDocumentsDirectory: URL = {
+		let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
 		return urls.last!
 	}()
 	
 	private lazy var managedObjectModel: NSManagedObjectModel = {
-		let modelURL = NSBundle.mainBundle().URLForResource("Timer", withExtension: "momd")!
-		return NSManagedObjectModel(contentsOfURL: modelURL)!
+		let modelURL = Bundle.main.url(forResource: "Timer", withExtension: "momd")!
+		return NSManagedObjectModel(contentsOf: modelURL)!
 	}()
 	
 	private lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
 		let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-		let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("Timer.sqlite")
+		let url = self.applicationDocumentsDirectory.appendingPathComponent("Timer.sqlite")
 		var failureReason = "There was an error creating or loading the application's saved data."
 		do {
-			try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)
+			try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
 		} catch {
 			var dict = [String: AnyObject]()
-			dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data"
-			dict[NSLocalizedFailureReasonErrorKey] = failureReason
+			dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data" as AnyObject
+			dict[NSLocalizedFailureReasonErrorKey] = failureReason as AnyObject
 			
 			dict[NSUnderlyingErrorKey] = error as NSError
 			let wrappedError = NSError(domain: "ERROR", code: 999, userInfo: dict)
@@ -55,7 +55,7 @@ class Datastore {
 	
 	private lazy var managedObjectContext: NSManagedObjectContext = {
 		let coordinator = self.persistentStoreCoordinator
-		var managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+		var managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
 		managedObjectContext.persistentStoreCoordinator = coordinator
 		return managedObjectContext
 	}()
@@ -77,10 +77,10 @@ class Datastore {
 	// <Public methods to use>
 	
 	func fetchTimers() -> [Timer] {
-		let fetchRequest = NSFetchRequest(entityName: "Timer")
+		let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Timer")
 		fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
 		do {
-			let results = try managedObjectContext.executeFetchRequest(fetchRequest)
+			let results = try managedObjectContext.fetch(fetchRequest)
 			return results as! [Timer]
 		} catch let error as NSError {
 			NSLog("Data fetching error: \(error)")
@@ -88,12 +88,12 @@ class Datastore {
 		}
 	}
 	
-	func saveTimer(date: NSDate, duration: Double) {
+	func saveTimer(_ date: Date, duration: Double) {
         if duration == 0{
             return
         }
 
-		let timer = NSEntityDescription.insertNewObjectForEntityForName(Timer.entityName, inManagedObjectContext: managedObjectContext) as! Timer
+		let timer = NSEntityDescription.insertNewObject(forEntityName: Timer.entityName, into: managedObjectContext) as! Timer
 		timer.date = date
 		timer.duration = duration
 		

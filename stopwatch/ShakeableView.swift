@@ -19,20 +19,20 @@ class ShakeableView: UIView {
         rightArrow = getTintedImage("RightArrow")
         shakeable = getTintedImage("Shake")
 
-        self.backgroundColor = UIColor.clearColor()
+        self.backgroundColor = UIColor.clear
         let shakeView = UIView.init(frame: CGRect(
             x: 0, y: 0,
             width: shakeable.image!.size.width,
             height: leftArrow.image!.size.height + shakeable.image!.size.height))
         shakeable.alpha = 0.39
-        shakeable.frame = CGRectMake(-(shakeView.frame.width / 2), leftArrow.image!.size.height, shakeable.image!.size.width, shakeable.image!.size.height)
-        leftArrow.frame = CGRectMake(-(shakeView.frame.width / 2), 0, leftArrow.image!.size.width, leftArrow.image!.size.height)
-        rightArrow.frame = CGRectMake((shakeView.frame.width / 2) - rightArrow.image!.size.width, 0, rightArrow.image!.size.width, rightArrow.image!.size.height)
+        shakeable.frame = CGRect(x: -(shakeView.frame.width / 2), y: leftArrow.image!.size.height, width: shakeable.image!.size.width, height: shakeable.image!.size.height)
+        leftArrow.frame = CGRect(x: -(shakeView.frame.width / 2), y: 0, width: leftArrow.image!.size.width, height: leftArrow.image!.size.height)
+        rightArrow.frame = CGRect(x: (shakeView.frame.width / 2) - rightArrow.image!.size.width, y: 0, width: rightArrow.image!.size.width, height: rightArrow.image!.size.height)
         shakeView.addSubview(leftArrow)
         shakeView.addSubview(rightArrow)
         shakeView.addSubview(shakeable)
 
-        NSTimer.scheduledTimerWithTimeInterval(1.2, target: self, selector: #selector(ShakeableView.shakeOnce), userInfo: nil, repeats: true)
+        Foundation.Timer.scheduledTimer(timeInterval: 1.2, target: self, selector: #selector(ShakeableView.shakeOnce), userInfo: nil, repeats: true)
 
         self.addSubview(shakeView)
 		
@@ -44,15 +44,15 @@ class ShakeableView: UIView {
         shakeAnimation.duration = 0.05
         shakeAnimation.repeatCount = 3
         shakeAnimation.autoreverses = true
-        shakeAnimation.fromValue = NSValue(CGPoint: CGPointMake(shakeable.center.x - 5, shakeable.center.y))
-        shakeAnimation.toValue = NSValue(CGPoint: CGPointMake(shakeable.center.x + 5, shakeable.center.y))
-        shakeable.layer.addAnimation(shakeAnimation, forKey: "position")
+        shakeAnimation.fromValue = NSValue(cgPoint: CGPoint(x: shakeable.center.x - 5, y: shakeable.center.y))
+        shakeAnimation.toValue = NSValue(cgPoint: CGPoint(x: shakeable.center.x + 5, y: shakeable.center.y))
+        shakeable.layer.add(shakeAnimation, forKey: "position")
     }
 
-    func getTintedImage(nameOfImage: String) -> UIImageView {
+    func getTintedImage(_ nameOfImage: String) -> UIImageView {
         let imageView = UIImageView ()
         if let image = UIImage(named: nameOfImage) {
-            imageView.image = image.imageWithRenderingMode(.AlwaysTemplate)
+            imageView.image = image.withRenderingMode(.alwaysTemplate)
         }
         imageView.tintColor = AppDelegate.instance.colorScheme.shakerColor
         return imageView
@@ -66,7 +66,7 @@ class ShakeableView: UIView {
         fadeToOpacity(1)
     }
 
-    func fadeToOpacity(opacity : Float) {
+    func fadeToOpacity(_ opacity : Float) {
         animateLayer(layer, duration: 0.5, animation: { l in l.opacity = opacity }, properties: "opacity")
     }
 
