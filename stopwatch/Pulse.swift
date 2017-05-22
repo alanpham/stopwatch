@@ -39,8 +39,8 @@ class Pulse: UIView
         animOuterOnce()
         
         layer.opacity = 0
-		
-		setColorScheme()
+
+        setColorScheme()
     }
     
     func animInnerOnce()
@@ -96,7 +96,7 @@ class Pulse: UIView
 
     func setColorScheme()
     {
-		internalCircle.fillColor = AppDelegate.instance.colorScheme.pulseColor.cgColor
-		externalCircle.fillColor = AppDelegate.instance.colorScheme.pulseColor.cgColor
+        internalCircle.fillColor = AppDelegate.instance.colorScheme.pulseColor.cgColor
+        externalCircle.fillColor = AppDelegate.instance.colorScheme.pulseColor.cgColor
     }
 }

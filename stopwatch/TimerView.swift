@@ -17,10 +17,10 @@ class TimerView: UILabel
             }
         }
     }
-	
-	var secondaryClockFaces: [ClockFace] = []
-	var secondaryLabels: [UILabel] = []
-	var prettySecondaryLabels: [UILabel] = []
+
+    var secondaryClockFaces: [ClockFace] = []
+    var secondaryLabels: [UILabel] = []
+    var prettySecondaryLabels: [UILabel] = []
 
     let screenSize: CGRect = UIScreen.main.bounds
 
@@ -39,22 +39,22 @@ class TimerView: UILabel
         secondFraction.topAnchor.constraint(equalTo: topAnchor).isActive = true
 
         updateLabel()
-		setColorScheme()
+        setColorScheme()
     }
 
     func start()
     {
         startTime = Date.init(timeIntervalSinceNow: interval)
-		
-		timer = Foundation.Timer(timeInterval: 0.1, target: self, selector: #selector(TimerView.tick), userInfo: nil, repeats: true)
+
+        timer = Foundation.Timer(timeInterval: 0.1, target: self, selector: #selector(TimerView.tick), userInfo: nil, repeats: true)
         RunLoop.current.add(timer, forMode: RunLoopMode.commonModes)
-		
+
         if let clock = clockFace {
             clock.show()
         }
-		for secondaryClockFace in secondaryClockFaces {
-			secondaryClockFace.show()
-		}
+        for secondaryClockFace in secondaryClockFaces {
+            secondaryClockFace.show()
+        }
         animateSecondFractionOpacity(opacity: 0.5, delay: 0)
         
         animateTextOffset(1, duration: 0.6, delay: 0)
@@ -74,10 +74,10 @@ class TimerView: UILabel
         {
             clock.hide()
         }
-		for secondaryClockFace in secondaryClockFaces
+        for secondaryClockFace in secondaryClockFaces
         {
-			secondaryClockFace.hide()
-		}
+            secondaryClockFace.hide()
+        }
         animateTextOffset(0, duration: 1, delay: 0.4)
         
         Foundation.Timer.schedule(delay: 0.4, handler: { timer in
@@ -119,10 +119,10 @@ class TimerView: UILabel
         {
             clock.animate(currentSeconds())
         }
-		for secondaryClockFace in secondaryClockFaces
+        for secondaryClockFace in secondaryClockFaces
         {
-			secondaryClockFace.animate(currentSeconds())
-		}
+            secondaryClockFace.animate(currentSeconds())
+        }
     }
     
     func animateTextOffset(_ amount : Float, duration : Double, delay : Double)
@@ -157,20 +157,20 @@ class TimerView: UILabel
         text = String(format: "%0.2d:%0.2d:%0.2d",hours,minutes,seconds)
         
         secondFraction.text = String(format: ".%0.1d", ms)
-		for secondaryLabel in secondaryLabels
+        for secondaryLabel in secondaryLabels
         {
-			secondaryLabel.text = text! + String(format: ".%0.1d", ms)
-		}
-		for prettySecondaryLabel in prettySecondaryLabels
+            secondaryLabel.text = text! + String(format: ".%0.1d", ms)
+        }
+        for prettySecondaryLabel in prettySecondaryLabels
         {
-			prettySecondaryLabel.text = interval.prettyFormat()
-		}
+            prettySecondaryLabel.text = interval.prettyFormat()
+        }
     }
 
     func setColorScheme()
     {
-		self.textColor = AppDelegate.instance.colorScheme.timerColor
-		secondFraction.textColor = AppDelegate.instance.colorScheme.timerColor
+        self.textColor = AppDelegate.instance.colorScheme.timerColor
+        secondFraction.textColor = AppDelegate.instance.colorScheme.timerColor
     }
 
     static func timerLabelSize() -> CGFloat

@@ -94,23 +94,23 @@ extension AppDelegate
 
 extension Date
 {
-	func defaultFormat() -> String
+    func defaultFormat() -> String
     {
-		return format("dd/MM/yyyy hh:mm a")
-	}
-	
-	func shortFormat() -> String
+        return format("dd/MM/yyyy hh:mm a")
+    }
+
+    func shortFormat() -> String
     {
-		return format("HH:mm:ss.S")
-	}
-	
-	func format(_ format: String) -> String
+        return format("HH:mm:ss.S")
+    }
+
+    func format(_ format: String) -> String
     {
-		let formatter = DateFormatter()
-		formatter.dateFormat = format
-		formatter.timeZone = TimeZone(secondsFromGMT: 0)
-		return formatter.string(from: self)
-	}
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        return formatter.string(from: self)
+    }
 }
 
 extension TimeInterval
@@ -133,5 +133,5 @@ extension TimeInterval
         }
         
         return String(format: "%d sec", seconds)
-	}
+    }
 }

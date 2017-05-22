@@ -5,22 +5,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-	var colorScheme: ColorScheme
+    var colorScheme: ColorScheme
     {
-		let hour = (Calendar.current as NSCalendar).component(.hour, from: Date())
-		let isDay = hour < 20 && hour > 8
-		
-		return isDay ? ColorSchemes.dayScheme : ColorSchemes.nightScheme
-	}
-	
-	static var instance: AppDelegate
+        let hour = (Calendar.current as NSCalendar).component(.hour, from: Date())
+        let isDay = hour < 20 && hour > 8
+
+        return isDay ? ColorSchemes.dayScheme : ColorSchemes.nightScheme
+    }
+
+    static var instance: AppDelegate
     {
-		return UIApplication.shared.delegate as! AppDelegate
-	}
-	
+        return UIApplication.shared.delegate as! AppDelegate
+    }
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
     {
-		
         return true
     }
 

@@ -35,8 +35,8 @@ class ShakeableView: UIView {
         Foundation.Timer.scheduledTimer(timeInterval: 1.2, target: self, selector: #selector(ShakeableView.shakeOnce), userInfo: nil, repeats: true)
 
         self.addSubview(shakeView)
-		
-		setColorScheme()
+
+        setColorScheme()
     }
 
     func shakeOnce() {
@@ -71,9 +71,9 @@ class ShakeableView: UIView {
     }
 
     func setColorScheme() {
-		rightArrow.tintColor = AppDelegate.instance.colorScheme.shakerColor
-		leftArrow.tintColor = AppDelegate.instance.colorScheme.shakerColor
-		shakeable.tintColor = AppDelegate.instance.colorScheme.shakerColor
+        rightArrow.tintColor = AppDelegate.instance.colorScheme.shakerColor
+        leftArrow.tintColor = AppDelegate.instance.colorScheme.shakerColor
+        shakeable.tintColor = AppDelegate.instance.colorScheme.shakerColor
     }
 
 }
