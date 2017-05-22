@@ -25,6 +25,11 @@
 		63D701951D58E14800643233 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D701941D58E14800643233 /* MainViewController.swift */; };
 		63D701971D58E5BD00643233 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D701961D58E5BD00643233 /* HistoryViewController.swift */; };
 		63D7019C1D58F60200643233 /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D7019B1D58F60200643233 /* ColorScheme.swift */; };
+		AC936DE91ED2DC90005CE1A0 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC936DE81ED2DC90005CE1A0 /* QuestionViewController.swift */; };
+		AC936DEB1ED2E2CF005CE1A0 /* QuestionContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC936DEA1ED2E2CF005CE1A0 /* QuestionContainerView.swift */; };
+		AC936DED1ED2E8B2005CE1A0 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC936DEC1ED2E8B2005CE1A0 /* FeedbackViewController.swift */; };
+		AC936DEF1ED2F6A2005CE1A0 /* Questions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC936DEE1ED2F6A2005CE1A0 /* Questions.swift */; };
+		AC936DF11ED2F911005CE1A0 /* Feedbacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC936DF01ED2F911005CE1A0 /* Feedbacks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +65,11 @@
 		63D701941D58E14800643233 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		63D701961D58E5BD00643233 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		63D7019B1D58F60200643233 /* ColorScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
+		AC936DE81ED2DC90005CE1A0 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		AC936DEA1ED2E2CF005CE1A0 /* QuestionContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionContainerView.swift; sourceTree = "<group>"; };
+		AC936DEC1ED2E8B2005CE1A0 /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
+		AC936DEE1ED2F6A2005CE1A0 /* Questions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Questions.swift; sourceTree = "<group>"; };
+		AC936DF01ED2F911005CE1A0 /* Feedbacks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feedbacks.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +148,7 @@
 				1995B2BE1D119B2A006C57C5 /* ClockFace.swift */,
 				3AD3C4E11D13080F00F60495 /* Pulse.swift */,
 				19E1D6B61D15A54B0084CA57 /* ShakeableView.swift */,
+				AC936DEA1ED2E2CF005CE1A0 /* QuestionContainerView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -148,6 +159,8 @@
 				63D701941D58E14800643233 /* MainViewController.swift */,
 				197D7EC01D10574400646FF0 /* TimerViewController.swift */,
 				63D701961D58E5BD00643233 /* HistoryViewController.swift */,
+				AC936DE81ED2DC90005CE1A0 /* QuestionViewController.swift */,
+				AC936DEC1ED2E8B2005CE1A0 /* FeedbackViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -165,6 +178,8 @@
 			isa = PBXGroup;
 			children = (
 				63D7019B1D58F60200643233 /* ColorScheme.swift */,
+				AC936DEE1ED2F6A2005CE1A0 /* Questions.swift */,
+				AC936DF01ED2F911005CE1A0 /* Feedbacks.swift */,
 				639407CB1D5A38550003E14E /* Table Cells */,
 				63D701981D58E5C500643233 /* View Controllers */,
 				63D7018C1D58D1A300643233 /* Views */,
@@ -277,15 +292,20 @@
 			files = (
 				1995B2C31D12CDE6006C57C5 /* Extensions.swift in Sources */,
 				63D7019C1D58F60200643233 /* ColorScheme.swift in Sources */,
+				AC936DF11ED2F911005CE1A0 /* Feedbacks.swift in Sources */,
+				AC936DED1ED2E8B2005CE1A0 /* FeedbackViewController.swift in Sources */,
 				639407CA1D5A32E00003E14E /* HistoryTableViewCell.swift in Sources */,
 				19E1D6B71D15A54B0084CA57 /* ShakeableView.swift in Sources */,
 				63D701951D58E14800643233 /* MainViewController.swift in Sources */,
 				63D701971D58E5BD00643233 /* HistoryViewController.swift in Sources */,
 				1995B2C51D13FA00006C57C5 /* UserSettings.swift in Sources */,
 				63D701931D58D4B100643233 /* Datastore.swift in Sources */,
+				AC936DEF1ED2F6A2005CE1A0 /* Questions.swift in Sources */,
 				197D7EC11D10574400646FF0 /* TimerViewController.swift in Sources */,
 				63D7018F1D58D37000643233 /* Timer.xcdatamodeld in Sources */,
 				1995B2BF1D119B2A006C57C5 /* ClockFace.swift in Sources */,
+				AC936DE91ED2DC90005CE1A0 /* QuestionViewController.swift in Sources */,
+				AC936DEB1ED2E2CF005CE1A0 /* QuestionContainerView.swift in Sources */,
 				3AD3C4E21D13080F00F60495 /* Pulse.swift in Sources */,
 				197D7EBF1D10574400646FF0 /* AppDelegate.swift in Sources */,
 				1995B2C11D12B679006C57C5 /* TimerView.swift in Sources */,
