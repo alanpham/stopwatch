@@ -45,9 +45,8 @@ class ClockFace: UIView
     func animate(_ seconds: Double)
     {
         
-        if seconds == currentSeconds { //don't run the animation on every call (run it 10 times a second).
-            return
-        }
+        if seconds == currentSeconds { return } //don't run the animation on every call (run it 10 times a second).
+            
         currentSeconds = seconds;
         
         let angle = seconds * 6.0
@@ -108,9 +107,12 @@ class ClockFace: UIView
 
     static func clockHandSize() -> Double
     {
-        if(AppDelegate.isIPhone5orLower()){
+        if(AppDelegate.isIPhone5orLower())
+        {
             return 300.0
-        } else {
+        }
+        else
+        {
             return 330.0
         }
     }
@@ -118,7 +120,8 @@ class ClockFace: UIView
     static func clockHandLocation(_ superView: UIView, clockFaceView: UIView) -> CGPoint
     {
         //if small, x points from top, if large, put in center
-        if(AppDelegate.isIPhone5orLower()) {
+        if(AppDelegate.isIPhone5orLower())
+        {
             return CGPoint(x: superView.center.x, y: 64 + clockFaceView.bounds.height / 2)
         }
         return superView.center
