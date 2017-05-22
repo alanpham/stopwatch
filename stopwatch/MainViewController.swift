@@ -31,9 +31,10 @@ class MainViewController: UIViewController, UIScrollViewDelegate
         self.view.backgroundColor = AppDelegate.instance.colorScheme.backgroundColor
     }
 
-    override func viewDidLayoutSubviews()
+    override func viewDidAppear(_ animated: Bool)
     {
-        super.viewDidLayoutSubviews()
+        super.viewDidAppear(animated)
+
         scrollView.contentSize = CGSize(width: view.frame.width * 2, height: view.frame.height)
         scrollView.delegate = self
 
