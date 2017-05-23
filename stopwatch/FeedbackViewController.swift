@@ -9,6 +9,8 @@ class FeedbackViewController: UIViewController
     @IBOutlet fileprivate weak var bottomStackViewConstraint: NSLayoutConstraint!
     
     var model: Feedback!
+    var negativeAction: (() -> Void)?
+    var positiveAction: ((String) -> Void)?
     
     override func viewDidLoad()
     {
@@ -28,6 +30,16 @@ class FeedbackViewController: UIViewController
         positiveButton.setTitle(model.positiveButtonText, for: .normal)
     }
     
+    @IBAction func negativeButtonTapped(_ sender: UIButton)
+    {
+        negativeAction?()
+    }
+    
+    @IBAction func positiveButtonTapped(_ sender: UIButton)
+    {
+        positiveAction?(feedbackTextView.text)
+    }
+    
     @objc private func keyboardWillShow(notification:NSNotification)
     {
         if let keyboardRectValue = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
@@ -36,10 +48,15 @@ class FeedbackViewController: UIViewController
         }
     }
     
-    class func instance(with model: Feedback, from storyboard: UIStoryboard) -> FeedbackViewController
+    class func instance(with model: Feedback,
+                        from storyboard: UIStoryboard,
+                        negativeAction: (() -> Void)? = nil,
+                        positiveAction: ((String) -> Void)? = nil) -> FeedbackViewController
     {
         let vc = storyboard.instantiateViewController(withIdentifier: "FeedbackViewController") as! FeedbackViewController
         vc.model = model
+        vc.negativeAction = negativeAction
+        vc.positiveAction = positiveAction
         vc.modalPresentationStyle = .custom
         return vc
     }

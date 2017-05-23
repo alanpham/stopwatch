@@ -7,6 +7,8 @@ class QuestionViewController: UIViewController
     @IBOutlet private weak var positiveButton: UIButton!
     
     var model: Question!
+    var negativeAction: (() -> Void)?
+    var positiveAction: (() -> Void)?
     
     override func viewDidLoad()
     {
@@ -20,10 +22,25 @@ class QuestionViewController: UIViewController
         positiveButton.setTitle(model.positiveButtonText, for: .normal)
     }
     
-    class func instance(with model: Question, from storyboard: UIStoryboard) -> QuestionViewController
+    @IBAction func negativeButtonTapped(_ sender: UIButton)
+    {
+        negativeAction?()
+    }
+    
+    @IBAction func positiveButtonTapped(_ sender: UIButton)
+    {
+        positiveAction?()
+    }
+    
+    class func instance(with model: Question,
+                        from storyboard: UIStoryboard,
+                        negativeAction: (() -> Void)? = nil,
+                        positiveAction: (() -> Void)? = nil) -> QuestionViewController
     {
         let vc = storyboard.instantiateViewController(withIdentifier: "QuestionViewController") as! QuestionViewController
         vc.model = model
+        vc.negativeAction = negativeAction
+        vc.positiveAction = positiveAction
         vc.modalPresentationStyle = .custom
         return vc
     }

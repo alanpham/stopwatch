@@ -140,7 +140,7 @@
                                         <rect key="frame" x="0.0" y="24" width="375" height="152.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPs-us-HRd">
-                                                <rect key="frame" x="169.5" y="0.0" width="36.5" height="20.5"/>
+                                                <rect key="frame" x="20" y="0.0" width="335" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.1266598254442215" green="0.12332642078399658" blue="0.23149816691875458" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
@@ -154,6 +154,9 @@
                                                 <state key="normal" title="Button">
                                                     <color key="titleColor" red="1" green="0.99997591972351074" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="negativeButtonTapped:" destination="a1i-27-KSD" eventType="touchUpInside" id="gIc-Bk-d0Q"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7i5-Gu-cq3">
                                                 <rect key="frame" x="20" y="106.5" width="335" height="46"/>
@@ -164,12 +167,17 @@
                                                 <state key="normal" title="Button">
                                                     <color key="titleColor" red="1" green="0.99997591972351074" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="positiveButtonTapped:" destination="a1i-27-KSD" eventType="touchUpInside" id="88w-X9-FHd"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="7i5-Gu-cq3" secondAttribute="trailing" constant="20" id="1I8-KJ-oXi"/>
                                             <constraint firstItem="4LR-ET-Q3P" firstAttribute="leading" secondItem="Ut8-Nt-YqJ" secondAttribute="leading" constant="20" id="2QC-MO-DDk"/>
                                             <constraint firstItem="4LR-ET-Q3P" firstAttribute="top" secondItem="aPs-us-HRd" secondAttribute="bottom" constant="24" id="2p0-c6-Mjk"/>
+                                            <constraint firstItem="aPs-us-HRd" firstAttribute="leading" secondItem="Ut8-Nt-YqJ" secondAttribute="leading" constant="20" id="3mg-KL-Mcj"/>
+                                            <constraint firstAttribute="trailing" secondItem="aPs-us-HRd" secondAttribute="trailing" constant="20" id="FNE-zp-rN0"/>
                                             <constraint firstAttribute="trailing" secondItem="4LR-ET-Q3P" secondAttribute="trailing" constant="20" id="NPv-DR-b3C"/>
                                             <constraint firstItem="7i5-Gu-cq3" firstAttribute="leading" secondItem="Ut8-Nt-YqJ" secondAttribute="leading" constant="20" id="bWq-5M-xTm"/>
                                         </constraints>
@@ -228,6 +236,9 @@
                                                 <state key="normal" title="Button">
                                                     <color key="titleColor" red="1" green="0.99997591969999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="negativeButtonTapped:" destination="TAD-L4-PCX" eventType="touchUpInside" id="dxf-V2-25Y"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TlB-OR-E0h">
                                                 <rect key="frame" x="20" y="62" width="335" height="46"/>
@@ -238,6 +249,9 @@
                                                 <state key="normal" title="Button">
                                                     <color key="titleColor" red="1" green="0.99997591969999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="positiveButtonTapped:" destination="TAD-L4-PCX" eventType="touchUpInside" id="MBA-59-ca9"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
