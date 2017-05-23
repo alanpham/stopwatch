@@ -30,6 +30,7 @@
 		AC936DED1ED2E8B2005CE1A0 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC936DEC1ED2E8B2005CE1A0 /* FeedbackViewController.swift */; };
 		AC936DEF1ED2F6A2005CE1A0 /* Questions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC936DEE1ED2F6A2005CE1A0 /* Questions.swift */; };
 		AC936DF11ED2F911005CE1A0 /* Feedbacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC936DF01ED2F911005CE1A0 /* Feedbacks.swift */; };
+		AC936DF31ED45966005CE1A0 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC936DF21ED45966005CE1A0 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		AC936DEC1ED2E8B2005CE1A0 /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		AC936DEE1ED2F6A2005CE1A0 /* Questions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Questions.swift; sourceTree = "<group>"; };
 		AC936DF01ED2F911005CE1A0 /* Feedbacks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feedbacks.swift; sourceTree = "<group>"; };
+		AC936DF21ED45966005CE1A0 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 			children = (
 				1995B2C41D13FA00006C57C5 /* UserSettings.swift */,
 				63D701921D58D4B100643233 /* Datastore.swift */,
+				AC936DF21ED45966005CE1A0 /* NetworkManager.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				TargetAttributes = {
 					197D7EBA1D10574400646FF0 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = B227VTMZ94;
 						LastSwiftMigration = 0830;
 					};
 					197D7ECE1D10574400646FF0 = {
@@ -302,6 +306,7 @@
 				63D701931D58D4B100643233 /* Datastore.swift in Sources */,
 				AC936DEF1ED2F6A2005CE1A0 /* Questions.swift in Sources */,
 				197D7EC11D10574400646FF0 /* TimerViewController.swift in Sources */,
+				AC936DF31ED45966005CE1A0 /* NetworkManager.swift in Sources */,
 				63D7018F1D58D37000643233 /* Timer.xcdatamodeld in Sources */,
 				1995B2BF1D119B2A006C57C5 /* ClockFace.swift in Sources */,
 				AC936DE91ED2DC90005CE1A0 /* QuestionViewController.swift in Sources */,
@@ -444,6 +449,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = B227VTMZ94;
 				INFOPLIST_FILE = stopwatch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -460,6 +466,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = B227VTMZ94;
 				INFOPLIST_FILE = stopwatch/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
