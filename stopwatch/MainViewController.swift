@@ -72,7 +72,8 @@ class MainViewController: UIViewController, UIScrollViewDelegate
     func scrollViewDidScroll(_ scrollView: UIScrollView)
     {
         if scrollView.contentOffset.x >= scrollView.frame.width * 0.9
-                && timerController?.settings.showHistoryHint == true {
+                && timerController?.settings.showHistoryHint == true
+        {
             timerController?.settings.showHistoryHint = false
             timerController?.refreshHistoryHint()
         }
