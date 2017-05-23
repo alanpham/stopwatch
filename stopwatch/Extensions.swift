@@ -111,6 +111,13 @@ extension Date
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
         return formatter.string(from: self)
     }
+    
+    func ignoreTimeComponents() -> Date
+    {
+        let units : NSCalendar.Unit = [ .year, .month, .day];
+        let calendar = Calendar.current;
+        return calendar.date(from: (calendar as NSCalendar).components(units, from: self))!
+    }
 }
 
 extension TimeInterval
