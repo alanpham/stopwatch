@@ -158,17 +158,17 @@ extension MainViewController: TimerDelegate
         timerController?.refreshHistoryHint()
         historyController?.hideCurrentTimerView()
         
-        if !UserSettings().didShowFeedbackUI
-        {
+//        if !UserSettings().didShowFeedbackUI
+//        {
             let timers = Datastore.instance.fetchTimers()
             guard
-                timers.count >=  10,
-                Set<Date>(timers.map { $0.date.ignoreTimeComponents() }).count >= 3
+                timers.count >=  2,
+                Set<Date>(timers.map { $0.date.ignoreTimeComponents() }).count >= 1
                 else { return }
             
             UserSettings().didShowFeedbackUI = true
             showQuestions()
-        }
+//        }
     }
 
     func timerSaved()
