@@ -209,6 +209,7 @@
 				197D7EB91D10574400646FF0 /* Resources */,
 				8175B80B44D26F9FC557E175 /* [CP] Embed Pods Frameworks */,
 				86915EC86B4AE8BC825736BE /* [CP] Copy Pods Resources */,
+				AC936DF41ED5A83C005CE1A0 /* Fabric */,
 			);
 			buildRules = (
 			);
@@ -327,6 +328,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-stopwatch/Pods-stopwatch-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		AC936DF41ED5A83C005CE1A0 /* Fabric */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Fabric;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" a6a9bdfca7594e17d7144bad53b3e0aadb2a0dcb 22ad5d692c46e5ad1a3d5b2cff3996776c53f1b5dd510ab6292921220028a812";
 		};
 		ECE36CCF18A4DE7267E9033C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
