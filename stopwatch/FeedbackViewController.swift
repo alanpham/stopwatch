@@ -2,11 +2,11 @@ import UIKit
 
 class FeedbackViewController: UIViewController
 {
-    @IBOutlet fileprivate weak var feedbackTextView: UITextView!
+    @IBOutlet private weak var feedbackTextView: UITextView!
     @IBOutlet fileprivate weak var placeholderLabel: UILabel!
-    @IBOutlet fileprivate weak var negativeButton: UIButton!
-    @IBOutlet fileprivate weak var positiveButton: UIButton!
-    @IBOutlet fileprivate weak var bottomStackViewConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var negativeButton: UIButton!
+    @IBOutlet private weak var positiveButton: UIButton!
+    @IBOutlet private weak var bottomStackViewConstraint: NSLayoutConstraint!
     
     var model: Feedback!
     var negativeAction: (() -> Void)?
