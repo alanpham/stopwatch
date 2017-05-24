@@ -28,9 +28,8 @@
 		AC936DE91ED2DC90005CE1A0 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC936DE81ED2DC90005CE1A0 /* QuestionViewController.swift */; };
 		AC936DEB1ED2E2CF005CE1A0 /* BottomModalBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC936DEA1ED2E2CF005CE1A0 /* BottomModalBackgroundView.swift */; };
 		AC936DED1ED2E8B2005CE1A0 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC936DEC1ED2E8B2005CE1A0 /* FeedbackViewController.swift */; };
-		AC936DEF1ED2F6A2005CE1A0 /* Questions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC936DEE1ED2F6A2005CE1A0 /* Questions.swift */; };
-		AC936DF11ED2F911005CE1A0 /* Feedbacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC936DF01ED2F911005CE1A0 /* Feedbacks.swift */; };
 		AC936DF31ED45966005CE1A0 /* FeedbackAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC936DF21ED45966005CE1A0 /* FeedbackAPI.swift */; };
+		AC936DF61ED5E238005CE1A0 /* FeedbackModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC936DF51ED5E238005CE1A0 /* FeedbackModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,9 +68,8 @@
 		AC936DE81ED2DC90005CE1A0 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		AC936DEA1ED2E2CF005CE1A0 /* BottomModalBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomModalBackgroundView.swift; sourceTree = "<group>"; };
 		AC936DEC1ED2E8B2005CE1A0 /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
-		AC936DEE1ED2F6A2005CE1A0 /* Questions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Questions.swift; sourceTree = "<group>"; };
-		AC936DF01ED2F911005CE1A0 /* Feedbacks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feedbacks.swift; sourceTree = "<group>"; };
 		AC936DF21ED45966005CE1A0 /* FeedbackAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackAPI.swift; sourceTree = "<group>"; };
+		AC936DF51ED5E238005CE1A0 /* FeedbackModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,8 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				63D7019B1D58F60200643233 /* ColorScheme.swift */,
-				AC936DEE1ED2F6A2005CE1A0 /* Questions.swift */,
-				AC936DF01ED2F911005CE1A0 /* Feedbacks.swift */,
+				AC936DF51ED5E238005CE1A0 /* FeedbackModels.swift */,
 				639407CB1D5A38550003E14E /* Table Cells */,
 				63D701981D58E5C500643233 /* View Controllers */,
 				63D7018C1D58D1A300643233 /* Views */,
@@ -294,9 +291,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC936DF61ED5E238005CE1A0 /* FeedbackModels.swift in Sources */,
 				1995B2C31D12CDE6006C57C5 /* Extensions.swift in Sources */,
 				63D7019C1D58F60200643233 /* ColorScheme.swift in Sources */,
-				AC936DF11ED2F911005CE1A0 /* Feedbacks.swift in Sources */,
 				AC936DED1ED2E8B2005CE1A0 /* FeedbackViewController.swift in Sources */,
 				639407CA1D5A32E00003E14E /* HistoryTableViewCell.swift in Sources */,
 				19E1D6B71D15A54B0084CA57 /* ShakeableView.swift in Sources */,
@@ -304,7 +301,6 @@
 				63D701971D58E5BD00643233 /* HistoryViewController.swift in Sources */,
 				1995B2C51D13FA00006C57C5 /* UserSettings.swift in Sources */,
 				63D701931D58D4B100643233 /* Datastore.swift in Sources */,
-				AC936DEF1ED2F6A2005CE1A0 /* Questions.swift in Sources */,
 				197D7EC11D10574400646FF0 /* TimerViewController.swift in Sources */,
 				AC936DF31ED45966005CE1A0 /* FeedbackAPI.swift in Sources */,
 				63D7018F1D58D37000643233 /* Timer.xcdatamodeld in Sources */,
