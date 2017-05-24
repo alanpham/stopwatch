@@ -55,18 +55,6 @@ class MainViewController: UIViewController, UIScrollViewDelegate
 
         scrollView.isScrollEnabled = UserSettings().hasReset
         timerController?.historyButton.isHidden = !UserSettings().hasReset
-        
-        if !UserSettings().didShowFeedbackUI
-        {
-            let timers = Datastore.instance.fetchTimers()
-            guard
-                timers.count >=  10,
-                Set<Date>(timers.map { $0.date.ignoreTimeComponents() }).count >= 3
-            else { return }
-            
-            UserSettings().didShowFeedbackUI = true
-            showQuestions()
-        }
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView)
@@ -157,6 +145,18 @@ extension MainViewController: TimerDelegate
         scrollView.isScrollEnabled = true
         timerController?.refreshHistoryHint()
         historyController?.hideCurrentTimerView()
+        
+        if !UserSettings().didShowFeedbackUI
+        {
+            let timers = Datastore.instance.fetchTimers()
+            guard
+                timers.count >=  10,
+                Set<Date>(timers.map { $0.date.ignoreTimeComponents() }).count >= 3
+                else { return }
+            
+            UserSettings().didShowFeedbackUI = true
+            showQuestions()
+        }
     }
 
     func timerSaved()
