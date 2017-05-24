@@ -29,7 +29,8 @@
 		AC936DEB1ED2E2CF005CE1A0 /* BottomModalBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC936DEA1ED2E2CF005CE1A0 /* BottomModalBackgroundView.swift */; };
 		AC936DED1ED2E8B2005CE1A0 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC936DEC1ED2E8B2005CE1A0 /* FeedbackViewController.swift */; };
 		AC936DF31ED45966005CE1A0 /* FeedbackAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC936DF21ED45966005CE1A0 /* FeedbackAPI.swift */; };
-		AC936DF61ED5E238005CE1A0 /* FeedbackModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC936DF51ED5E238005CE1A0 /* FeedbackModels.swift */; };
+		AC936DF81ED5EF2D005CE1A0 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC936DF71ED5EF2D005CE1A0 /* Question.swift */; };
+		AC936DFA1ED5EF4B005CE1A0 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC936DF91ED5EF4B005CE1A0 /* Feedback.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,7 +72,8 @@
 		AC936DEA1ED2E2CF005CE1A0 /* BottomModalBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomModalBackgroundView.swift; sourceTree = "<group>"; };
 		AC936DEC1ED2E8B2005CE1A0 /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		AC936DF21ED45966005CE1A0 /* FeedbackAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackAPI.swift; sourceTree = "<group>"; };
-		AC936DF51ED5E238005CE1A0 /* FeedbackModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackModels.swift; sourceTree = "<group>"; };
+		AC936DF71ED5EF2D005CE1A0 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		AC936DF91ED5EF4B005CE1A0 /* Feedback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 		E4A426605A6C96549E72B6E7 /* Pods-stopwatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stopwatch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-stopwatch/Pods-stopwatch.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,7 +82,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9108BE9B3F3214F7752D7A8C /* Pods_stopwatch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,7 +195,8 @@
 			isa = PBXGroup;
 			children = (
 				63D7019B1D58F60200643233 /* ColorScheme.swift */,
-				AC936DF51ED5E238005CE1A0 /* FeedbackModels.swift */,
+				AC936DF71ED5EF2D005CE1A0 /* Question.swift */,
+				AC936DF91ED5EF4B005CE1A0 /* Feedback.swift */,
 				639407CB1D5A38550003E14E /* Table Cells */,
 				63D701981D58E5C500643233 /* View Controllers */,
 				63D7018C1D58D1A300643233 /* Views */,
@@ -380,11 +382,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC936DF61ED5E238005CE1A0 /* FeedbackModels.swift in Sources */,
 				1995B2C31D12CDE6006C57C5 /* Extensions.swift in Sources */,
 				63D7019C1D58F60200643233 /* ColorScheme.swift in Sources */,
 				AC936DED1ED2E8B2005CE1A0 /* FeedbackViewController.swift in Sources */,
 				639407CA1D5A32E00003E14E /* HistoryTableViewCell.swift in Sources */,
+				AC936DFA1ED5EF4B005CE1A0 /* Feedback.swift in Sources */,
+				AC936DF81ED5EF2D005CE1A0 /* Question.swift in Sources */,
 				19E1D6B71D15A54B0084CA57 /* ShakeableView.swift in Sources */,
 				63D701951D58E14800643233 /* MainViewController.swift in Sources */,
 				63D701971D58E5BD00643233 /* HistoryViewController.swift in Sources */,
