@@ -1,7 +1,7 @@
 import UIKit
 
 @IBDesignable
-class QuestionContainerView: UIView
+class BottomModalBackgroundView: UIView
 {
     @IBInspectable
     var drawnBackgroundColor: UIColor = UIColor.white

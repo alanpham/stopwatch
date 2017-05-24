@@ -26,11 +26,11 @@
 		63D701971D58E5BD00643233 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D701961D58E5BD00643233 /* HistoryViewController.swift */; };
 		63D7019C1D58F60200643233 /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D7019B1D58F60200643233 /* ColorScheme.swift */; };
 		AC936DE91ED2DC90005CE1A0 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC936DE81ED2DC90005CE1A0 /* QuestionViewController.swift */; };
-		AC936DEB1ED2E2CF005CE1A0 /* QuestionContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC936DEA1ED2E2CF005CE1A0 /* QuestionContainerView.swift */; };
+		AC936DEB1ED2E2CF005CE1A0 /* BottomModalBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC936DEA1ED2E2CF005CE1A0 /* BottomModalBackgroundView.swift */; };
 		AC936DED1ED2E8B2005CE1A0 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC936DEC1ED2E8B2005CE1A0 /* FeedbackViewController.swift */; };
 		AC936DEF1ED2F6A2005CE1A0 /* Questions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC936DEE1ED2F6A2005CE1A0 /* Questions.swift */; };
 		AC936DF11ED2F911005CE1A0 /* Feedbacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC936DF01ED2F911005CE1A0 /* Feedbacks.swift */; };
-		AC936DF31ED45966005CE1A0 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC936DF21ED45966005CE1A0 /* NetworkManager.swift */; };
+		AC936DF31ED45966005CE1A0 /* FeedbackAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC936DF21ED45966005CE1A0 /* FeedbackAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,11 +67,11 @@
 		63D701961D58E5BD00643233 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		63D7019B1D58F60200643233 /* ColorScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
 		AC936DE81ED2DC90005CE1A0 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
-		AC936DEA1ED2E2CF005CE1A0 /* QuestionContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionContainerView.swift; sourceTree = "<group>"; };
+		AC936DEA1ED2E2CF005CE1A0 /* BottomModalBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomModalBackgroundView.swift; sourceTree = "<group>"; };
 		AC936DEC1ED2E8B2005CE1A0 /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		AC936DEE1ED2F6A2005CE1A0 /* Questions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Questions.swift; sourceTree = "<group>"; };
 		AC936DF01ED2F911005CE1A0 /* Feedbacks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feedbacks.swift; sourceTree = "<group>"; };
-		AC936DF21ED45966005CE1A0 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		AC936DF21ED45966005CE1A0 /* FeedbackAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +150,7 @@
 				1995B2BE1D119B2A006C57C5 /* ClockFace.swift */,
 				3AD3C4E11D13080F00F60495 /* Pulse.swift */,
 				19E1D6B61D15A54B0084CA57 /* ShakeableView.swift */,
-				AC936DEA1ED2E2CF005CE1A0 /* QuestionContainerView.swift */,
+				AC936DEA1ED2E2CF005CE1A0 /* BottomModalBackgroundView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -172,7 +172,7 @@
 			children = (
 				1995B2C41D13FA00006C57C5 /* UserSettings.swift */,
 				63D701921D58D4B100643233 /* Datastore.swift */,
-				AC936DF21ED45966005CE1A0 /* NetworkManager.swift */,
+				AC936DF21ED45966005CE1A0 /* FeedbackAPI.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -306,11 +306,11 @@
 				63D701931D58D4B100643233 /* Datastore.swift in Sources */,
 				AC936DEF1ED2F6A2005CE1A0 /* Questions.swift in Sources */,
 				197D7EC11D10574400646FF0 /* TimerViewController.swift in Sources */,
-				AC936DF31ED45966005CE1A0 /* NetworkManager.swift in Sources */,
+				AC936DF31ED45966005CE1A0 /* FeedbackAPI.swift in Sources */,
 				63D7018F1D58D37000643233 /* Timer.xcdatamodeld in Sources */,
 				1995B2BF1D119B2A006C57C5 /* ClockFace.swift in Sources */,
 				AC936DE91ED2DC90005CE1A0 /* QuestionViewController.swift in Sources */,
-				AC936DEB1ED2E2CF005CE1A0 /* QuestionContainerView.swift in Sources */,
+				AC936DEB1ED2E2CF005CE1A0 /* BottomModalBackgroundView.swift in Sources */,
 				3AD3C4E21D13080F00F60495 /* Pulse.swift in Sources */,
 				197D7EBF1D10574400646FF0 /* AppDelegate.swift in Sources */,
 				1995B2C11D12B679006C57C5 /* TimerView.swift in Sources */,

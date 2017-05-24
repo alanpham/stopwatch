@@ -129,7 +129,7 @@ extension MainViewController
     
     private func send(feedback: String)
     {
-        NetworkManager.send(feedback: feedback)
+        FeedbackAPI.send(feedback: feedback)
     }
 }
 

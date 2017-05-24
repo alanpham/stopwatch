@@ -133,7 +133,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5hX-y1-Cr9" customClass="QuestionContainerView" customModule="stopwatch" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5hX-y1-Cr9" customClass="BottomModalBackgroundView" customModule="stopwatch" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="466.5" width="375" height="200.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Ut8-Nt-YqJ">
@@ -221,7 +221,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1HO-1e-lpI" customClass="QuestionContainerView" customModule="stopwatch" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1HO-1e-lpI" customClass="BottomModalBackgroundView" customModule="stopwatch" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="36" width="375" height="631"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Aj4-ha-XR5">
