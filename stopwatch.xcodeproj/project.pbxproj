@@ -25,6 +25,7 @@
 		63D701951D58E14800643233 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D701941D58E14800643233 /* MainViewController.swift */; };
 		63D701971D58E5BD00643233 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D701961D58E5BD00643233 /* HistoryViewController.swift */; };
 		63D7019C1D58F60200643233 /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D7019B1D58F60200643233 /* ColorScheme.swift */; };
+		9108BE9B3F3214F7752D7A8C /* Pods_stopwatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02F21C98B006F377CD85CA0E /* Pods_stopwatch.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02F21C98B006F377CD85CA0E /* Pods_stopwatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_stopwatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		197D7EBB1D10574400646FF0 /* stopwatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = stopwatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		197D7EBE1D10574400646FF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		197D7EC01D10574400646FF0 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 		1995B2C21D12CDE6006C57C5 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1995B2C41D13FA00006C57C5 /* UserSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		19E1D6B61D15A54B0084CA57 /* ShakeableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShakeableView.swift; sourceTree = "<group>"; };
+		2D1F39ED4AB0644F3A3864CD /* Pods-stopwatch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stopwatch.release.xcconfig"; path = "Pods/Target Support Files/Pods-stopwatch/Pods-stopwatch.release.xcconfig"; sourceTree = "<group>"; };
 		3AD3C4E11D13080F00F60495 /* Pulse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pulse.swift; sourceTree = "<group>"; };
 		639407C91D5A32E00003E14E /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		63D7018E1D58D37000643233 /* Timer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Timer.xcdatamodel; sourceTree = "<group>"; };
@@ -60,6 +63,7 @@
 		63D701941D58E14800643233 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		63D701961D58E5BD00643233 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		63D7019B1D58F60200643233 /* ColorScheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
+		E4A426605A6C96549E72B6E7 /* Pods-stopwatch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stopwatch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-stopwatch/Pods-stopwatch.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9108BE9B3F3214F7752D7A8C /* Pods_stopwatch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +91,8 @@
 				197D7EBD1D10574400646FF0 /* stopwatch */,
 				197D7ED21D10574400646FF0 /* stopwatchTests */,
 				197D7EBC1D10574400646FF0 /* Products */,
+				56C7EE89108E4896EC869315 /* Pods */,
+				FC2AA3230040ED1EA840FB86 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,6 +128,15 @@
 				197D7ED51D10574400646FF0 /* Info.plist */,
 			);
 			path = stopwatchTests;
+			sourceTree = "<group>";
+		};
+		56C7EE89108E4896EC869315 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E4A426605A6C96549E72B6E7 /* Pods-stopwatch.debug.xcconfig */,
+				2D1F39ED4AB0644F3A3864CD /* Pods-stopwatch.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		639407CB1D5A38550003E14E /* Table Cells */ = {
@@ -172,6 +188,14 @@
 			name = UI;
 			sourceTree = "<group>";
 		};
+		FC2AA3230040ED1EA840FB86 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				02F21C98B006F377CD85CA0E /* Pods_stopwatch.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -179,9 +203,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 197D7ED81D10574400646FF0 /* Build configuration list for PBXNativeTarget "stopwatch" */;
 			buildPhases = (
+				ECE36CCF18A4DE7267E9033C /* [CP] Check Pods Manifest.lock */,
 				197D7EB71D10574400646FF0 /* Sources */,
 				197D7EB81D10574400646FF0 /* Frameworks */,
 				197D7EB91D10574400646FF0 /* Resources */,
+				8175B80B44D26F9FC557E175 /* [CP] Embed Pods Frameworks */,
+				86915EC86B4AE8BC825736BE /* [CP] Copy Pods Resources */,
+				AC936DF41ED5A83C005CE1A0 /* Fabric */,
 			);
 			buildRules = (
 			);
@@ -269,6 +297,68 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8175B80B44D26F9FC557E175 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-stopwatch/Pods-stopwatch-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		86915EC86B4AE8BC825736BE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-stopwatch/Pods-stopwatch-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC936DF41ED5A83C005CE1A0 /* Fabric */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Fabric;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" a6a9bdfca7594e17d7144bad53b3e0aadb2a0dcb 22ad5d692c46e5ad1a3d5b2cff3996776c53f1b5dd510ab6292921220028a812";
+		};
+		ECE36CCF18A4DE7267E9033C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		197D7EB71D10574400646FF0 /* Sources */ = {
@@ -420,6 +510,7 @@
 		};
 		197D7ED91D10574400646FF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4A426605A6C96549E72B6E7 /* Pods-stopwatch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -436,6 +527,7 @@
 		};
 		197D7EDA1D10574400646FF0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D1F39ED4AB0644F3A3864CD /* Pods-stopwatch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
