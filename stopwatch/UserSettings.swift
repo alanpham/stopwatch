@@ -9,12 +9,14 @@ class UserSettings
     private let hasStoppedKey = "hasStopped"
     private let hasResetKey = "hasReset"
     private let showHistoryHintKey = "showHistoryHint"
+    private let didShowFeedbackUIKey = "didShowFeedbackUIKey"
 
     private lazy var defaultValues : NSDictionary = [
             self.hasStartedKey : false,
             self.hasStoppedKey : false,
             self.hasResetKey : false,
             self.showHistoryHintKey: false,
+            self.didShowFeedbackUIKey: false,
             self.lastOpenedKey: Date()
     ]
 
@@ -77,6 +79,15 @@ class UserSettings
             return defaults.bool(forKey: showHistoryHintKey)
         }
     }
+    
+    var didShowFeedbackUI : Bool {
+        set {
+            defaults.set(newValue, forKey: didShowFeedbackUIKey)
+        }
+        get {
+            return defaults.bool(forKey: didShowFeedbackUIKey)
+        }
+    }
 
     init ()
     {
@@ -106,6 +117,7 @@ class UserSettings
         hasStarted = defaultValues[hasStartedKey] as! Bool
         hasStopped = defaultValues[hasStoppedKey] as! Bool
         hasReset = defaultValues[hasResetKey] as! Bool
+        didShowFeedbackUI = defaultValues[didShowFeedbackUIKey] as! Bool
         showHistoryHint = defaultValues[showHistoryHintKey] as! Bool
     }
 }
