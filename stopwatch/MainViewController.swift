@@ -89,7 +89,10 @@ extension MainViewController
 {
     func showQuestions()
     {
-        let firstPopup = QuestionViewController.instance(with: Questions.firstQuestion,
+        let question = Question(text: "Enjoying Stopwatch?",
+                                negativeButtonText: "Not Really",
+                                positiveButtonText: "Yes!")
+        let firstPopup = QuestionViewController.instance(with: question,
                                                          from: storyboard!,
                                                          negativeAction: { [weak self] in self?.showFeedbackQuestion() },
                                                          positiveAction: { [weak self] in self?.showAppStoreRateQuestion() })
@@ -98,7 +101,10 @@ extension MainViewController
     
     private func showAppStoreRateQuestion()
     {
-        let appStoreRatePopup = QuestionViewController.instance(with: Questions.secondQuestion,
+        let question = Question(text: "Whould you mind talking a moment to rate it in the App Store?",
+                                negativeButtonText: "No, thanks",
+                                positiveButtonText: "Ok, sure")
+        let appStoreRatePopup = QuestionViewController.instance(with: question,
                                                                 from: self.storyboard!,
                                                                 negativeAction: { [weak self] in self?.dismiss(animated: true, completion: nil) },
                                                                 positiveAction: { [weak self] in
@@ -111,7 +117,10 @@ extension MainViewController
     
     private func showFeedbackQuestion()
     {
-        let feedbackQuestionPopup = QuestionViewController.instance(with: Questions.thirdQuestion,
+        let question = Question(text: "Would you mind giving us some feedback?",
+                                negativeButtonText: "No, thanks",
+                                positiveButtonText: "Ok, sure")
+        let feedbackQuestionPopup = QuestionViewController.instance(with: question,
                                                                     from: self.storyboard!,
                                                                     negativeAction: { [weak self] in self?.dismiss(animated: true, completion: nil) },
                                                                     positiveAction: { [weak self] in self?.showFeedbackInput() })
@@ -122,7 +131,10 @@ extension MainViewController
     
     private func showFeedbackInput()
     {
-        let feedbackPopup = FeedbackViewController.instance(with: Feedbacks.feedback,
+        let feedback = Feedback(placeholderText: "Add your comment...",
+                                negativeButtonText: "Cancel",
+                                positiveButtonText: "Send")
+        let feedbackPopup = FeedbackViewController.instance(with: feedback,
                                                             from: self.storyboard!,
                                                             negativeAction: { [weak self] in self?.dismiss(animated: true, completion: nil) },
                                                             positiveAction: { [weak self] text in
@@ -141,7 +153,7 @@ extension MainViewController
     
     private func send(feedback: String)
     {
-        NetworkManager.send(feedback: feedback)
+        FeedbackAPI.send(feedback: feedback)
     }
 }
 

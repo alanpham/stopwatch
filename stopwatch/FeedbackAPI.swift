@@ -1,6 +1,6 @@
 import Foundation
 
-class NetworkManager
+class FeedbackAPI
 {
     private static let username = ""
     private static let password = ""
