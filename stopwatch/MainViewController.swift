@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import Answers
 
 protocol TimerDelegate
 {
@@ -89,13 +90,19 @@ extension MainViewController
 {
     func showQuestions()
     {
+        Answers.logCustomEvent(withName: "Start feedback flow", customAttributes: [:])
+        
         let question = Question(text: "Enjoying Stopwatch?",
                                 negativeButtonText: "Not Really",
                                 positiveButtonText: "Yes!")
         let firstPopup = QuestionViewController.instance(with: question,
                                                          from: storyboard!,
-                                                         negativeAction: { [weak self] in self?.showFeedbackQuestion() },
-                                                         positiveAction: { [weak self] in self?.showAppStoreRateQuestion() })
+                                                         negativeAction: {
+                                                            [weak self] in self?.showFeedbackQuestion()
+                                                            Answers.logCustomEvent(withName: "\(question.text) > \(question.negativeButtonText)", customAttributes: [:]) },
+                                                         positiveAction: {
+                                                            [weak self] in self?.showAppStoreRateQuestion()
+                                                            Answers.logCustomEvent(withName: "\(question.text) > \(question.positiveButtonText)", customAttributes: [:]) })
         present(firstPopup, animated: true, completion: nil)
     }
     
@@ -109,7 +116,8 @@ extension MainViewController
                                                                 negativeAction: { [weak self] in self?.dismiss(animated: true, completion: nil) },
                                                                 positiveAction: { [weak self] in
                                                                     self?.dismiss(animated: true, completion: nil)
-                                                                    self?.reviewInAppStore() })
+                                                                    self?.reviewInAppStore()
+                                                                    Answers.logCustomEvent(withName: "Positive end of feedback flow with App Store redirect", customAttributes: [:]) })
         dismiss(animated: true, completion: {
             self.present(appStoreRatePopup, animated: true, completion: nil)
         })
@@ -139,7 +147,8 @@ extension MainViewController
                                                             negativeAction: { [weak self] in self?.dismiss(animated: true, completion: nil) },
                                                             positiveAction: { [weak self] text in
                                                                 self?.send(feedback: text)
-                                                                self?.dismiss(animated: true, completion: nil) })
+                                                                self?.dismiss(animated: true, completion: nil)
+                                                                Answers.logCustomEvent(withName: "Positive end of feedback flow with feedback send", customAttributes: [:]) })
         dismiss(animated: true, completion: {
             self.present(feedbackPopup, animated: true, completion: nil)
         })
