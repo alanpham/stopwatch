@@ -1,91 +1,123 @@
+import Foundation
 
- import Foundation
-
- class UserSettings {
-
+class UserSettings
+{
     private var defaults = UserDefaults.standard
 
     private let lastOpenedKey = "lastOpened"
     private let hasStartedKey = "hasStarted"
     private let hasStoppedKey = "hasStopped"
     private let hasResetKey = "hasReset"
-	private let showHistoryHintKey = "showHistoryHint"
+    private let showHistoryHintKey = "showHistoryHint"
+    private let didShowFeedbackUIKey = "didShowFeedbackUIKey"
 
     private lazy var defaultValues : NSDictionary = [
             self.hasStartedKey : false,
             self.hasStoppedKey : false,
             self.hasResetKey : false,
             self.showHistoryHintKey: false,
+            self.didShowFeedbackUIKey: false,
             self.lastOpenedKey: Date()
     ]
 
-    var lastOpened : Date! {
-        set {
+    var lastOpened : Date!
+    {
+        set
+        {
             defaults.set(newValue, forKey: lastOpenedKey)
         }
-        get {
+        get
+        {
             return defaults.object(forKey: lastOpenedKey) as! Date
         }
     }
 
-    var hasStarted : Bool {
-        set {
+    var hasStarted : Bool
+    {
+        set
+        {
             defaults.set(newValue, forKey: hasStartedKey)
         }
-        get {
+        get
+        {
             return defaults.bool(forKey: hasStartedKey)
         }
     }
 
-    var hasStopped : Bool {
-        set {
+    var hasStopped : Bool
+    {
+        set
+        {
             defaults.set(newValue, forKey: hasStoppedKey)
         }
-        get {
+        get
+        {
             return defaults.bool(forKey: hasStoppedKey)
         }
     }
 
-    var hasReset : Bool {
-        set {
+    var hasReset : Bool
+    {
+        set
+        {
             defaults.set(newValue, forKey: hasResetKey)
         }
-        get {
+        get
+        {
             return defaults.bool(forKey: hasResetKey)
         }
     }
-	
-	var showHistoryHint : Bool {
-		set {
-			defaults.set(newValue, forKey: showHistoryHintKey)
-		}
-		get {
-			return defaults.bool(forKey: showHistoryHintKey)
-		}
-	}
 
-    init (){
+    var showHistoryHint : Bool
+    {
+        set
+        {
+            defaults.set(newValue, forKey: showHistoryHintKey)
+        }
+        get
+        {
+            return defaults.bool(forKey: showHistoryHintKey)
+        }
+    }
+    
+    var didShowFeedbackUI : Bool {
+        set {
+            defaults.set(newValue, forKey: didShowFeedbackUIKey)
+        }
+        get {
+            return defaults.bool(forKey: didShowFeedbackUIKey)
+        }
+    }
+
+    init ()
+    {
         defaults.register(defaults: defaultValues as! [String : AnyObject])
         resetIfMoreThanWeekOld()
     }
 
-    func resetIfMoreThanWeekOld () {
+    func resetIfMoreThanWeekOld()
+    {
         let weekInSeconds = 604800.0 //week in seconds
 
         let interval = Date().timeIntervalSince(lastOpened)
 
-        if(interval > weekInSeconds){
+        if(interval > weekInSeconds)
+        {
             restoreDefaults()
-        } else {
+        }
+        else
+        {
             lastOpened = Date()
         }
     }
 
-    func restoreDefaults() {
+    func restoreDefaults()
+    {
         lastOpened = defaultValues[lastOpenedKey] as! Date
         hasStarted = defaultValues[hasStartedKey] as! Bool
         hasStopped = defaultValues[hasStoppedKey] as! Bool
         hasReset = defaultValues[hasResetKey] as! Bool
-		showHistoryHint = defaultValues[showHistoryHintKey] as! Bool
+        didShowFeedbackUI = defaultValues[didShowFeedbackUIKey] as! Bool
+        showHistoryHint = defaultValues[showHistoryHintKey] as! Bool
     }
- }
+}

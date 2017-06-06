@@ -14,19 +14,19 @@ class ClockFace: UIView
         super.init(coder: aDecoder)
     }
 
-	init(containerSize: CGSize = CGSize(width: ClockFace.clockHandSize(), height: ClockFace.clockHandSize()),
-	     centerRadius: CGFloat = 8)
+    init(containerSize: CGSize = CGSize(width: ClockFace.clockHandSize(), height: ClockFace.clockHandSize()),
+         centerRadius: CGFloat = 8)
     {
-		super.init(frame: CGRect (origin: CGPoint.zero, size: containerSize))
-		
+        super.init(frame: CGRect (origin: CGPoint.zero, size: containerSize))
+
         backgroundColor = UIColor.clear
         setColorScheme()
         clockHand.path = getHandPath(extended: false)
-		
-		let scale = (CGFloat(ClockFace.clockHandSize()) / containerSize.width) + (CGFloat(ClockFace.clockHandSize()) / containerSize.height)
-		clockHand.lineWidth = 0.01 * (scale / 2)
+
+        let scale = (CGFloat(ClockFace.clockHandSize()) / containerSize.width) + (CGFloat(ClockFace.clockHandSize()) / containerSize.height)
+        clockHand.lineWidth = 0.01 * (scale / 2)
         dotWidth = centerRadius
-		
+
         midLayer.addSublayer(clockHand)
         midLayer.setAffineTransform(CGAffineTransform.init(a: frame.width/4.0, b: 0, c: 0, d: frame.height / 4.0, tx: frame.width / 2.0, ty: frame.height / 2.0))
         scaleDot(0)
@@ -39,17 +39,14 @@ class ClockFace: UIView
         let path = CGMutablePath()
         path.move(to: CGPoint(x: 0, y: 0))
         path.addLine(to: CGPoint(x: 0, y: extended ? -2 : 0))
-//        CGPathMoveToPoint(path, nil, 0, 0)
-//        CGPathAddLineToPoint(path, nil, 0, extended ? -2 : 0)
         return path
     }
     
     func animate(_ seconds: Double)
     {
         
-        if seconds == currentSeconds { //don't run the animation on every call (run it 10 times a second).
-            return
-        }
+        if seconds == currentSeconds { return } //don't run the animation on every call (run it 10 times a second).
+            
         currentSeconds = seconds;
         
         let angle = seconds * 6.0
@@ -104,15 +101,18 @@ class ClockFace: UIView
 
     func setColorScheme()
     {
-		centerDot.backgroundColor = AppDelegate.instance.colorScheme.dotColor.cgColor
-		clockHand.strokeColor = AppDelegate.instance.colorScheme.handColor.cgColor
+        centerDot.backgroundColor = AppDelegate.instance.colorScheme.dotColor.cgColor
+        clockHand.strokeColor = AppDelegate.instance.colorScheme.handColor.cgColor
     }
 
     static func clockHandSize() -> Double
     {
-        if(AppDelegate.isIPhone5orLower()){
+        if(AppDelegate.isIPhone5orLower())
+        {
             return 300.0
-        } else {
+        }
+        else
+        {
             return 330.0
         }
     }
@@ -120,7 +120,8 @@ class ClockFace: UIView
     static func clockHandLocation(_ superView: UIView, clockFaceView: UIView) -> CGPoint
     {
         //if small, x points from top, if large, put in center
-        if(AppDelegate.isIPhone5orLower()) {
+        if(AppDelegate.isIPhone5orLower())
+        {
             return CGPoint(x: superView.center.x, y: 64 + clockFaceView.bounds.height / 2)
         }
         return superView.center
